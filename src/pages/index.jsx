@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useCallback } from 'react'
+import { useEffect } from 'react/'
 import { Footer } from 'src/components/Footer'
 import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
@@ -8,10 +9,16 @@ import styles from 'src/styles/Home.module.css'
 export default function Home() {
 
 const foo = 1;
-
 const handleClick = useCallback((e) => {
   e.preventDefault();
   alert(foo);
+}, []);
+
+useEffect(()=>{
+  document.body.style.backgroundColor = "lightblue";
+  return() =>{
+    document.body.style.backgroundColor = "";
+  }
 }, []);
 
   return (
