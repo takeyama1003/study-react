@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react/'
 import { useState } from 'react/'
+import { useCallback } from 'react/'
 import { Footer } from 'src/components/Footer'
 import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
@@ -10,10 +11,14 @@ export default function Home() {
 
 const [foo, setFoo] = useState(1);
 
-const handleClick = (e) =>{
-  setFoo(foo => foo + 1);
-  setFoo(foo => foo + 1);
-}
+const handleClick = useCallback (
+    ()=>{
+      if(foo < 10){
+        setFoo(foo => foo + 1);
+      }
+    },
+    [foo]
+  );
 
 useEffect(()=>{
   document.body.style.backgroundColor = "lightblue";
