@@ -12,6 +12,7 @@ export default function Home() {
 const [foo, setFoo] = useState(1);
 const [text, setText] = useState("");
 const [isShow, setIsShow] = useState(true);
+const [array, setArray] = useState([]);
 
 const handleClick = useCallback (
     ()=>{
@@ -26,20 +27,30 @@ const handleClick = useCallback (
     setIsShow((isShow)=>!isShow);
   },[]);
 
+  const handleAdd = useCallback(()=>{
+    setArray((prevArray)=>{
+      if(prevArray.some((item)=> item === text)){
+        alert("同じ要素がすでに入ってます。");
+        return prevArray;
+      }
+      return [...prevArray,text];
+    });
+  },[text]);
+
+  const handleChange = useCallback((e)=>{
+    if(e.target.value.length > 5){
+      alert("5文字以内にしてください");
+      return;
+    }
+    setText(e.target.value.trim());
+  },[]);
+
 useEffect(()=>{
   document.body.style.backgroundColor = "lightblue";
   return() =>{
     document.body.style.backgroundColor = "";
   }
 }, []);
-
-const handleChange = useCallback((e)=>{
-  if(e.target.value.length > 5){
-    alert("5文字以内にしてください");
-    return;
-  }
-  setText(e.target.value.trim());
-},[]);
 
   return (
     <div className={styles.container}>
@@ -53,6 +64,12 @@ const handleChange = useCallback((e)=>{
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange} />
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map((item)=>{
+          return <li key={item}>{item}</li>
+        })}
+      </ul>
       <Main page="index" />
       <Footer />
     </div>
