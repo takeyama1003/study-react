@@ -26,7 +26,7 @@ const ITEM = [
   },
 ];
 
-export function Main(props) {
+export const Main = (props) => {
 
   const [items, setItems] = useState(ITEM);
   const handleReduce = useCallback(()=>{

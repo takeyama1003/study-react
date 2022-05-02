@@ -4,7 +4,7 @@ import { Footer } from 'src/components/Footer'
 import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
 
-export default function Home(props) {
+const Home = (props)=> {
 
   const {foo, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props;
 
@@ -33,3 +33,5 @@ export default function Home(props) {
     </div>
   )
 }
+
+export default Home;
