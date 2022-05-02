@@ -1,10 +1,15 @@
 import { useState } from 'react/'
 import { useCallback } from 'react/'
+import { useMemo } from 'react/';
 
 export const useCounter = () =>{
 
     const [foo, setFoo] = useState(1);
     const [isShow, setIsShow] = useState(true);
+
+    const dobleCount = useMemo(()=>{
+      return foo * 2;
+    },[foo]);
 
     const handleClick = useCallback (
         ()=>{
@@ -19,6 +24,6 @@ export const useCounter = () =>{
         setIsShow((isShow)=>!isShow);
       },[]);
 
-      return{foo, isShow, handleClick, handleDisplay};
+      return{foo, dobleCount, isShow, handleClick, handleDisplay};
 
 };

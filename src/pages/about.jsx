@@ -6,7 +6,7 @@ import styles from 'src/styles/Home.module.css'
 
 export default function About(props) {
 
-  const {foo, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props;
+  const {dobleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props;
 
   return (
     <div className={styles.container}>
@@ -16,7 +16,7 @@ export default function About(props) {
       </Head>
       <Header />
 
-      {isShow ? <h1>{foo}</h1> : null}
+      {isShow ? <h1>{dobleCount}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
 
