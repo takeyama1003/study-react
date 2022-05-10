@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from 'src/components/Header/Header.module.css'
 
 const NAV_ITEMS = [
-  {href:"/", label: "index"},
+  {href:"/posts", label: "Posts"},
   {href:"/about", label: "About"},
 ]
 
@@ -16,12 +16,6 @@ export const Header = () => {
           </Link>
           );
         })}
-          {/* <Link href="/">
-            <a className={styles.anchor}>Index</a>
-          </Link>
-          <Link href="/about">
-            <a className={styles.anchor}>About</a>
-          </Link> */}
       </header>
   )
 }
