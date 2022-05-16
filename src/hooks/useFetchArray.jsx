@@ -26,3 +26,7 @@ import useSWR from 'swr';
   export const useUsers = () =>{
     return useFetchArray(`${API_URL}/users`, fetcher);
   };
+
+  export const useCommentByPostId = (id) =>{
+    return useFetchArray(id ? `${API_URL}/comments?postId=${id}`: null, fetcher);
+  };
