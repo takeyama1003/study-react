@@ -23,10 +23,9 @@ import { PostByPostId } from 'src/components/Post/PostByPostId';
       <ul>
         <li>{data?.name}</li>
         <li>{data?.email}</li>
-        <li><PostByPostId id={data.id}/></li>
       </ul>
       <h2>元の記事</h2>
-      
+      <PostByPostId id={data.postId}/>
     </div>
   );
 };
