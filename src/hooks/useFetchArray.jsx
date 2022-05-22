@@ -15,26 +15,26 @@ import useSWR from 'swr';
 
   const API_URL ="https://jsonplaceholder.typicode.com";
 
-  export const useComments = () =>{
-    return useFetchArray(`${API_URL}/comments`, fetcher);
-  };
 
+// Post
   export const usePosts = () =>{
     return useFetchArray(`${API_URL}/posts`, fetcher);
   };
 
+//User
   export const useUsers = () =>{
     return useFetchArray(`${API_URL}/users`, fetcher);
-  };
-
-  export const useCommentByPostId = (id) =>{
-    return useFetchArray(id ? `${API_URL}/comments?postId=${id}`: null, fetcher);
   };
 
   export const usePostsByUserId = (id) =>{
     return useFetchArray(id ? `${API_URL}/posts?userId=${id}`: null, fetcher);
   };
 
-  export const usePostByPostId = (id) =>{
-    return useFetchArray(id ? `${API_URL}/posts?id=${id}`: null, fetcher);
+//Comment
+  export const useComments = () =>{
+    return useFetchArray(`${API_URL}/comments`, fetcher);
+  };
+
+  export const useCommentByPostId = (id) =>{
+    return useFetchArray(id ? `${API_URL}/comments?postId=${id}`: null, fetcher);
   };
