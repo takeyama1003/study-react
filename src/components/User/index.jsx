@@ -23,7 +23,7 @@ import { PostsByUserId } from 'src/components/Posts/PostsByUserId';
       <h2>詳細</h2>
       <ul>
         <li>{data?.email}</li>
-        <li>{data?.dataname}</li>
+        <li>{data?.name}</li>
         <li>{data?.address.city}</li>
         <li>{data?.phone}</li>
         <li>{data?.website}</li>
