@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import { useUser } from 'src/hooks/useUser';
+import { PostsByUserId } from 'src/components/Posts/PostsByUserId';
 
  export const User = ()=> {
 
-  const { post, user, error, isLoading } = useUser();
+  const { data, error, isLoading } = useUser();
 
   if(isLoading){
       return <div>ローディング中</div>;
@@ -16,17 +17,20 @@ import { useUser } from 'src/hooks/useUser';
   return (
     <div>
       <Head>
-          <title>{user?.name}</title>
+          <title>{data?.name}</title>
       </Head>
-      <h1>{user?.name}</h1>
+      <h1>{data?.name}</h1>
+      <h2>詳細</h2>
       <ul>
-        <li>{user?.email}</li>
-        <li>{user?.username}</li>
-        <li>{user?.address.city}</li>
-        <li>{user?.phone}</li>
-        <li>{user?.website}</li>
-        <li>{user?.company.name}</li>
+        <li>{data?.email}</li>
+        <li>{data?.dataname}</li>
+        <li>{data?.address.city}</li>
+        <li>{data?.phone}</li>
+        <li>{data?.website}</li>
+        <li>{data?.company.name}</li>
       </ul>
+      <h2>投稿</h2>
+      <PostsByUserId id={data.id}/>
     </div>
   );
 };
