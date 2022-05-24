@@ -20,17 +20,8 @@ export const PostByPostId = (props) => {
 
     return (
         <div>
-        {/* {data.map((posts)=>{
-            return (
-              <li key={posts.id}>
-                <Link href={`/posts/${posts.id}`}>
-                  <a>{posts.title}</a>
-                </Link>
-              </li>
-            );
-        })} */}
             <Link href={`/posts/${data.id}`}>
-                <a>{data.title}</a>
+                <a className="text-lg hover:text-blue-500">{data.title}</a>
             </Link>
         </div>
     );
