@@ -1,3 +1,4 @@
+import { API_URL } from 'src/utils/const';
 import { fetcher } from 'src/utils/fetcher';
 import useSWRImmutable from 'swr/immutable';
   
@@ -13,7 +14,7 @@ import useSWRImmutable from 'swr/immutable';
     };
   };
 
-  const API_URL ="https://jsonplaceholder.typicode.com";
+  // const API_URL ="https://jsonplaceholder.typicode.com";
 
 
 // Post
