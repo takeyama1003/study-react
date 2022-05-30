@@ -22,7 +22,7 @@ import { useComments } from 'src/hooks/useFetchArray';
     {data.map((comments)=>{
         return (
           <li key={comments.id} className="border-b pb-2">
-            <Link href={`/comments/${comments.id}`}>
+            <Link href={`/comments/${comments.id}`} prefetch={false}>
               <a className="block hover:text-blue-500">
                 {comments.body}
                 </a>
