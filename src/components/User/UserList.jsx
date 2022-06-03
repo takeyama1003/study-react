@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { useUsers } from 'src/hooks/useFetchArray';
+import { useFetchArray } from 'src/hooks/useFetchArray';
+import { API_URL } from 'src/utils/const';
 
- export const Users = ()=> {
+ export const UserList = ()=> {
 
-  const { data, error, isLoading, isEmpty } = useUsers();
+  const { data, error, isLoading, isEmpty } = useFetchArray(`${API_URL}/users`);
 
   if(isLoading){
       return <div>ローディング中</div>;

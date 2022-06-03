@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { usePostsByUserId } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { API_URL } from "src/utils/const";
 
-export const PostsByUserId = (props) => {
+export const PostListByUserId = (props) => {
 
-    const {data, error, isLoading, isEmpty } = usePostsByUserId(props.id);
+    const {data, error, isLoading, isEmpty } = useFetchArray(props.id ? `${API_URL}/users/${props.id}/posts`: null);
 
         if(isLoading){
             return <div>ローディング中</div>;
